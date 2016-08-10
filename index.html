@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>hello donglegend</h2>
+    <div class="box"></div>
+    <script type="text/javascript" src="http://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $.get('/api/index/show_gift', function(data) {
+    	var list = data.data.list;
+    	
+    	var html = list.map(function (item){
+    		return '<p>'+item.gift_item_name+'</p>';
+    	}).join('')
+
+    	$('.box').append(html)
+    },"json")
+    </script>
+</body>
+
+</html>
